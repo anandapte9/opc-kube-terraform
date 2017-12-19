@@ -4,3 +4,4 @@ terraform.tfvars
 
 .terraform/
 keys/
+keys/kube_key*
