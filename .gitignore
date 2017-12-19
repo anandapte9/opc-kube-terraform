@@ -3,6 +3,4 @@
 terraform.tfvars
 
 .terraform/
-modules/compute/keys/
-modules/network/keys/
-modules/kube-cluster/keys/
+keys/
