@@ -8,7 +8,7 @@ module "network-infrastructure" {
 
 module "master_instances" {
 	source          	  = "./modules/compute"
-	instance-count  	  = 1
+	instance-count  	  = "${var.master-instance-count}"
 	app-type        	  = "kube-master"
 	ip-network      	  = "${module.network-infrastructure.ip-network-name}"
 	ssh-key         	  = "${module.network-infrastructure.ssh-key}"

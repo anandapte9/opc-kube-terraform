@@ -2,7 +2,7 @@ resource "null_resource" "kube-enable" {
   count          = "${var.instance-count}"
 
   provisioner "local-exec" {
-    command      = "sleep 600"
+    command      = "sleep 60"
   }
 
   connection {
@@ -11,11 +11,11 @@ resource "null_resource" "kube-enable" {
      host        = "${var.master-ip-address[0]}"
      user        = "${var.ssh_user}"
      type        = "ssh"
-     private_key = "${file("${path.module}/keys/${var.ssh_private_key}")}"
+     private_key = "${file("${path.root}/keys/${var.ssh_private_key}")}"
    }
 
    provisioner "file" {
-    source = "${path.module}/keys/${var.ssh_private_key}"
+    source = "${path.root}/keys/${var.ssh_private_key}"
     destination = "/home/opc/kube_key"
    }
 

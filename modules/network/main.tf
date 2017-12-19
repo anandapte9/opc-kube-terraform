@@ -1,6 +1,6 @@
 resource "opc_compute_ssh_key" "ssh-key" {
   name               = "kubernetes-key"
-  key                = "${file("${path.module}/keys/${var.ssh_public_key}")}"
+  key                = "${file("${path.root}/keys/${var.ssh_public_key}")}"
   enabled            = true
 }
 

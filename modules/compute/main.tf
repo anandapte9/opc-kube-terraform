@@ -46,11 +46,11 @@ resource "null_resource" "instance-init" {
      host        = "${element(opc_compute_ip_address_reservation.ip-address-reservation.*.ip_address, count.index)}"
      user        = "${var.ssh_user}"
      type        = "ssh"
-     private_key = "${file("${path.module}/keys/${var.ssh_private_key}")}"
+     private_key = "${file("${path.root}/keys/${var.ssh_private_key}")}"
    }
 
    provisioner "file" {
-    source = "${var.app-type == "kube-master" ? "${path.module}/bootstrap/kube-init-master.sh" : "${path.module}/bootstrap/kube-init-node.sh" }"
+    source = "${var.app-type == "kube-master" && count.index == 0 ? "${path.module}/bootstrap/kube-init-master.sh" : "${path.module}/bootstrap/kube-init-node.sh" }"
     destination = "/home/opc/kube-init.sh"
    }
 

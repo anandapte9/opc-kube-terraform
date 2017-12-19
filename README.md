@@ -45,7 +45,7 @@ How to user this:
     1) Clone this repository first.
     2) Copy terraform.examples.tfvars to terraform.tfvars and set appropriate initialization parameters.
     3) Generate ssh key to be used for your compute instances.  -->  ssh-keygen -t rsa (Don't use passphrase as you need auto login to have Terraform configure the K8S cluster automatically).
-    4) Save the generated private key under keys folder of every module (I would have wanted to save files under one single folder outside of the modules but shame that the relative path doesn't work on Windows, it would work on mac however would need a couple of updates to be made under each of the modules configuration files - easier in this instance is to copy the files under each "keys" folder).Also you will have to create keys folder under every module and copy the private key there.
+    4) Save the generated private key under keys folder under root folder. Also you will have to create keys folder under every module and copy the private key there.
     5) Initialize Terraform from within the root folder. --> terraform init
     6) Run terraform get from within the root folder. --> terraform get
     7) Run terraform plan from within the root folder to see if it generates the plan that you want.

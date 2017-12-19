@@ -10,3 +10,4 @@ sudo echo 'Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"' > /etc/systemd
 sudo chmod 755 90-local-extras.conf
 sudo swapoff -a
 sudo systemctl daemon-reload
+sudo systemctl enable kubelet
